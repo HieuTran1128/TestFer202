@@ -1,0 +1,73 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
+}
+
+/* Header Styling */
+h1 {
+  color: #61dafb;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #61dafb;
+  margin-top: 20px;
+}
+
+/* Unordered list styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #444;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+/* Table Styling */
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #333;
+  color: #fff;
+}
+
+table th, table td {
+  padding: 12px;
+  border: 1px solid #555;
+  text-align: left;
+}
+
+table th {
+  background-color: #555;
+}
+
+table tr:nth-child(even) {
+  background-color: #444;
+}
+
+table tr:hover {
+  background-color: #666;
+}
+
+table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+/* Add some spacing for the tables */
+table + table {
+  margin-top: 30px;
+}
