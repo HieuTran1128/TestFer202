@@ -1,0 +1,53 @@
+.header {
+    background-color: #e67e22;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .logo {
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+    background-color: white;
+  }
+  
+  nav {
+    margin-top: 10px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .content {
+    padding: 40px 20px;
+    background-color: white;
+    text-align: center; 
+  }
+  
+  .content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .content p {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .footer {
+    background-color: #f4c37d;
+    padding: 20px;
+    font-size: 14px;
+    text-align: center; 
+  }
+  
