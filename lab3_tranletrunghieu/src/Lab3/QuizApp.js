@@ -1,84 +1,131 @@
-import React, { Component } from "react";
-import Question from "./Question";
+import React, { useReducer } from "react";
 import Result from "./Result";
 
-class QuizApp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      questions: [
-        {
-          id: 1,
-          question: "What is the capital of France?",
-          options: ["Paris", "London", "Berlin", "Madrid"],
-          answer: "Paris",
+const initialState = {
+  currentQuestion: 0,
+  score: 0,
+  selectedOptions: {},
+  quizEnd: false,
+};
+
+const quizReducer = (state, action) => {
+  switch (action.type) {
+    case "SELECT_OPTION":
+      if (state.selectedOptions[state.currentQuestion] !== undefined) return state;
+
+      const isCorrect = action.payload.option === action.payload.correctAnswer;
+      return {
+        ...state,
+        selectedOptions: {
+          ...state.selectedOptions,
+          [state.currentQuestion]: action.payload.option,
         },
-        {
-          id: 2,
-          question: "What is the largest planet in our solar system?",
-          options: ["Jupiter", "Saturn", "Mars", "Earth"],
-          answer: "Jupiter",
-        },
-      ],
-      currentQuestion: 0,
-      score: 0,
-      quizEnd: false,
-    };
+        score: isCorrect ? state.score + 1 : state.score,
+      };
+
+    case "NEXT_QUESTION":
+      return {
+        ...state,
+        currentQuestion: state.currentQuestion + 1,
+      };
+
+    case "PREVIOUS_QUESTION":
+      return {
+        ...state,
+        currentQuestion: state.currentQuestion - 1,
+      };
+
+    case "REPLAY_QUIZ":
+      return initialState;
+
+    case "END_QUIZ":
+      return { ...state, quizEnd: true };
+
+    default:
+      return state;
   }
+};
 
-  handleOptionChange = (option) => {
-    this.setState({ selectedOption: option }, this.checkAnswer);
-  };
+const QuizApp = () => {
+  const [state, dispatch] = useReducer(quizReducer, initialState);
 
-  checkAnswer = () => {
-    const { currentQuestion, questions, selectedOption, score } = this.state;
-    if (selectedOption === questions[currentQuestion].answer) {
-      this.setState({ score: score + 1 }, this.moveToNextQuestion);
-    } else {
-      this.moveToNextQuestion();
-    }
-  };
+  const questions = [
+    {
+      question: "What is the capital of France?",
+      options: ["Paris", "London", "Berlin", "Madrid"],
+      answer: "Paris",
+    },
+    {
+      question: "What is the largest planet in our solar system?",
+      options: ["Jupiter", "Saturn", "Mars", "Earth"],
+      answer: "Jupiter",
+    },
+    {
+      question: "What is the capital of Vietnam?",
+      options: ["Hanoi", "Ho Chi Minh", "Da Nang", "Hue"],
+      answer: "Hanoi",
+    },
+  ];
 
-  moveToNextQuestion = () => {
-    const { currentQuestion, questions } = this.state;
-    if (currentQuestion + 1 < questions.length) {
-      this.setState({
-        currentQuestion: currentQuestion + 1,
-        selectedOption: "",
-      });
-    } else {
-      this.setState({ quizEnd: true });
-    }
-  };
-
-  replayQuiz = () => {
-    this.setState({
-      currentQuestion: 0,
-      score: 0,
-      selectedOption: "",
-      quizEnd: false,
+  const handleOptionChange = (option) => {
+    dispatch({
+      type: "SELECT_OPTION",
+      payload: { option, correctAnswer: questions[state.currentQuestion].answer },
     });
   };
 
-  render() {
-    const { questions, currentQuestion, quizEnd, score } = this.state;
-    
-    if (quizEnd) {
-      return <Result score={score} totalQuestions={questions.length} onReplay={this.replayQuiz} />;
-    }
-
-    return (
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
-        <h1 style={{ color: "black" }}>Quiz App</h1>
-        <Question 
-          questionNumber={currentQuestion + 1}
-          question={questions[currentQuestion].question} 
-          options={questions[currentQuestion].options} 
-          onOptionChange={this.handleOptionChange} 
+  return (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>Quiz App</h1>
+      {!state.quizEnd ? (
+        <>
+          <h2>{questions[state.currentQuestion].question}</h2>
+          {questions[state.currentQuestion].options.map((option, index) => (
+            <button
+              key={index}
+              style={{
+                margin: "10px",
+                padding: "10px",
+                backgroundColor:
+                  state.selectedOptions[state.currentQuestion] === option
+                    ? option === questions[state.currentQuestion].answer
+                      ? "#4CAF50"
+                      : "#FF5733"
+                    : "#01AA85",
+                color: "white",
+                fontWeight:
+                  state.selectedOptions[state.currentQuestion] === option ? "bold" : "normal",
+              }}
+              onClick={() => handleOptionChange(option)}
+              disabled={state.selectedOptions[state.currentQuestion] !== undefined}
+            >
+              {option}
+            </button>
+          ))}
+          <div style={{ marginTop: "20px" }}>
+            <button
+              onClick={() => dispatch({ type: "PREVIOUS_QUESTION" })}
+              disabled={state.currentQuestion === 0}
+            >
+              Previous Question
+            </button>
+            <button onClick={() => dispatch({ type: "NEXT_QUESTION" })} disabled={state.currentQuestion === questions.length - 1}>
+              Next Question
+            </button>
+            <button onClick={() => dispatch({ type: "END_QUIZ" })}>
+              Submit
+            </button>
+          </div>
+        </>
+      ) : (
+        <Result
+          score={state.score}
+          totalQuestions={questions.length}
+          onReplay={() => dispatch({ type: "REPLAY_QUIZ" })}
         />
-      </div>
-    );
-  }
-}
+      )}
+    </div>
+  );
+};
 
 export default QuizApp;
