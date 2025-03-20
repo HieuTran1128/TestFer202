@@ -69,7 +69,7 @@ function Contact() {
 
     if (!formData.agree) {
       newErrors.agree = getErrorMessage('agree');
-      setTouched({ ...touched, agree: true }); // Ensure agree is marked as touched
+      setTouched({ ...touched, agree: true });
     }
 
     setErrors(newErrors);
@@ -86,7 +86,7 @@ function Contact() {
       city: true,
       state: true,
       zip: true,
-      agree: true, // Mark agree as touched on submit
+      agree: true,
     });
 
     const isValid = validateForm();
@@ -231,7 +231,7 @@ function Contact() {
             isInvalid={touched.agree && !!errors.agree}
             feedback={errors.agree}
             feedbackType="invalid"
-            className={touched.agree && !!errors.agree ? 'text-danger' : ''} // Add red color to label
+            className={touched.agree && !!errors.agree ? 'text-danger' : ''}
           />
         </Form.Group>
 

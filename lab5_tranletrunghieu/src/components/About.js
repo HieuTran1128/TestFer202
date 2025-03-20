@@ -50,7 +50,10 @@ function About() {
               marginBottom: '20px'
             }}
           >
-            Xin chào! Tôi là <strong>Trần Lê Trung Hiếu</strong>, một sinh viên đam mê công nghệ và lập trình tại trường đại học. Với mã số sinh viên <strong>DE180438</strong> và thuộc lớp <strong>SE18C02</strong>, tôi đang trên hành trình khám phá thế giới phát triển phần mềm, đặc biệt là lĩnh vực lập trình web với React. Tôi luôn nỗ lực học hỏi, sáng tạo và áp dụng kiến thức vào các dự án thực tế để nâng cao kỹ năng của mình.
+            Xin chào! Tôi là <strong>Trần Lê Trung Hiếu</strong>, một sinh viên đam mê công nghệ và lập trình tại trường đại học. 
+            Với mã số sinh viên <strong>DE180438</strong> và thuộc lớp <strong>SE18C02</strong>, 
+            tôi đang trên hành trình khám phá thế giới phát triển phần mềm, đặc biệt là lĩnh vực lập trình web với React. 
+            Tôi luôn nỗ lực học hỏi, sáng tạo và áp dụng kiến thức vào các dự án thực tế để nâng cao kỹ năng của mình.
           </p>
           <p 
             style={{
@@ -60,7 +63,9 @@ function About() {
               marginBottom: '20px'
             }}
           >
-            Trong quá trình học tập, tôi đã được tiếp xúc với nhiều công nghệ hiện đại và phát triển niềm yêu thích đặc biệt với việc xây dựng các giao diện người dùng thân thiện, hiệu quả. Dự án này là một trong những sản phẩm tôi tạo ra để thể hiện sự hiểu biết của mình về React và cách tổ chức code sao cho rõ ràng, dễ bảo trì. Tôi hy vọng có thể tiếp tục phát triển bản thân và đóng góp vào cộng đồng công nghệ trong tương lai.
+            Trong quá trình học tập, tôi đã được tiếp xúc với nhiều công nghệ hiện đại và phát triển niềm yêu thích đặc biệt với việc xây dựng các giao diện người dùng thân thiện, 
+            hiệu quả. Dự án này là một trong những sản phẩm tôi tạo ra để thể hiện sự hiểu biết của mình về React và cách tổ chức code sao cho rõ ràng, dễ bảo trì. 
+            Tôi hy vọng có thể tiếp tục phát triển bản thân và đóng góp vào cộng đồng công nghệ trong tương lai.
           </p>
           <div 
             className="alert alert-info"
