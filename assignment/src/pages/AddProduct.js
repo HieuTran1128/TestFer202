@@ -70,53 +70,53 @@ const AddProduct = ({ user }) => {
 
   return (
     <Container className="add-product-page mt-5">
-      <h2 className="text-center mb-4">Thêm Sản Phẩm Mới</h2>
+      <h2 className="text-center mb-4">New Product</h2>
       <div className="add-product-form-container">
         <Form onSubmit={handleAddProduct}>
           {formError && <Alert variant="danger">{formError}</Alert>}
           <Form.Group className="mb-3" >
-            <Form.Label className="form-label-add">Tên Sản Phẩm</Form.Label>
+            <Form.Label className="form-label-add">Product Name</Form.Label>
             <Form.Control
               type="text"
               name="name"
               value={newProduct.name}
               onChange={handleInputChange}
-              placeholder="Nhập tên sản phẩm"
+              placeholder="Enter Product Name"
               required
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label className="form-label-add">Danh Mục</Form.Label>
+            <Form.Label className="form-label-add">Category</Form.Label>
             <Form.Select name="category" value={newProduct.category} onChange={handleInputChange}>
               <option value="console">Console</option>
               <option value="game">Game</option>
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label className="form-label-add">Giá</Form.Label>
+            <Form.Label className="form-label-add">Price</Form.Label>
             <Form.Control
               type="number"
               name="price"
               value={newProduct.price}
               onChange={handleInputChange}
-              placeholder="Nhập giá sản phẩm"
+              placeholder="Enter Price"
               min="0"
               step="0.01"
               required
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label className="form-label-add">Hình Ảnh (URL)</Form.Label>
+            <Form.Label className="form-label-add">Picture (URL)</Form.Label>
             <Form.Control
               type="text"
               name="image"
               value={newProduct.image}
               onChange={handleInputChange}
-              placeholder="Nhập URL hình ảnh"
+              placeholder="Enter Picture URL"
             />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label className="form-label-add">Trạng Thái</Form.Label>
+            <Form.Label className="form-label-add">Status</Form.Label>
             <Form.Select name="status" value={newProduct.status} onChange={handleInputChange}>
               <option value="available">Available</option>
               <option value="upcoming">Coming Soon</option>
@@ -124,10 +124,10 @@ const AddProduct = ({ user }) => {
           </Form.Group>
           <div className="d-flex justify-content-end gap-2">
             <Button variant="secondary" onClick={() => navigate("/shop")} disabled={isSubmitting}>
-              Hủy
+              Cancel
             </Button>
             <Button variant="primary" type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Đang Thêm..." : "Thêm Sản Phẩm"}
+              {isSubmitting ? "Adding..." : "Added"}
             </Button>
           </div>
         </Form>
