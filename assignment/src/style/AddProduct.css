@@ -1,0 +1,160 @@
+/* Tổng thể trang */
+.add-product-page {
+    max-width: 800px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa trang */
+    padding: 40px 20px; /* Khoảng cách bên trong */
+    /* Bỏ background gradient */
+    min-height: 100vh; /* Đảm bảo chiều cao tối thiểu */
+  }
+  
+  /* Tiêu đề */
+  .add-product-page h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c3e50; /* Màu xanh đậm */
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+  }
+  
+  /* Container của form */
+  .add-product-form-container {
+    background-color: #ffffff; /* Nền trắng */
+    padding: 30px;
+    border-radius: 15px; /* Bo góc */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+    transition: transform 0.3s ease; /* Hiệu ứng khi hover */
+  }
+  
+  .add-product-form-container:hover {
+    transform: translateY(-5px); /* Nâng nhẹ khi hover */
+  }
+  
+  /* Form Group */
+  .form-group {
+    margin-bottom: 25px; /* Khoảng cách giữa các field */
+  }
+  
+  /* Label */
+  .form-label-add {
+    font-weight: 600; /* Đậm */
+    color: #34495e !important; /* Màu xanh xám */
+    font-size: 1.1rem;
+    margin-bottom: 8px; /* Khoảng cách với input */
+  }
+  
+  /* Input và Select */
+  .form-control,
+  .form-select {
+    border: 2px solid #dcdcdc; /* Viền nhẹ */
+    border-radius: 8px; /* Bo góc */
+    padding: 12px 15px; /* Khoảng cách bên trong */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển đổi */
+  }
+  
+  .form-control:focus,
+  .form-select:focus {
+    border-color: #3498db; /* Màu viền khi focus */
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3); /* Đổ bóng khi focus */
+    outline: none; /* Bỏ viền mặc định */
+  }
+  
+  /* Placeholder */
+  .form-control::placeholder {
+    color: #bdc3c7; /* Màu placeholder nhạt */
+    font-style: italic;
+  }
+  
+  /* Hình ảnh preview */
+  .image-preview {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .image-preview img {
+    border: 2px solid #ecf0f1; /* Viền nhẹ */
+    border-radius: 10px; /* Bo góc */
+    padding: 5px;
+    background-color: #f9f9f9; /* Nền sáng */
+    transition: transform 0.3s ease; /* Hiệu ứng phóng to */
+  }
+  
+  .image-preview img:hover {
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+  }
+  
+  /* Nút bấm */
+  .btn {
+    padding: 12px 25px; /* Kích thước nút */
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px; /* Bo góc */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển đổi */
+  }
+  
+  /* Nút Primary */
+  .btn-primary {
+    background-color: #3498db; /* Màu xanh dương */
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #2980b9; /* Tối hơn khi hover */
+    transform: translateY(-2px); /* Nâng nhẹ */
+  }
+  
+  /* Nút Secondary */
+  .btn-secondary {
+    background-color: #95a5a6; /* Màu xám */
+    border: none;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #7f8c8d; /* Tối hơn khi hover */
+    transform: translateY(-2px); /* Nâng nhẹ */
+  }
+  
+  /* Nút khi disabled */
+  .btn:disabled {
+    opacity: 0.6; /* Mờ đi */
+    cursor: not-allowed;
+  }
+  
+  /* Alert */
+  .alert-danger {
+    border-radius: 8px; /* Bo góc */
+    padding: 15px;
+    font-size: 1rem;
+    background-color: #e74c3c; /* Màu đỏ nhạt */
+    color: #fff; /* Chữ trắng */
+    margin-bottom: 20px;
+  }
+  
+  /* Căn chỉnh nút */
+  .d-flex.justify-content-end {
+    gap: 15px; /* Khoảng cách giữa các nút */
+  }
+  
+  /* Responsive */
+  @media (max-width: 576px) {
+    .add-product-page {
+      padding: 20px 10px; /* Giảm padding trên mobile */
+    }
+  
+    .add-product-form-container {
+      padding: 20px; /* Giảm padding */
+    }
+  
+    .btn {
+      width: 100%; /* Nút full-width trên mobile */
+      margin-bottom: 10px; /* Khoảng cách giữa các nút */
+    }
+  
+    .d-flex.justify-content-end {
+      flex-direction: column; /* Xếp dọc trên mobile */
+      gap: 10px;
+    }
+  }
